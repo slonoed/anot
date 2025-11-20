@@ -3,7 +3,6 @@ import './style.css';
 // Configuration
 const MINI_MODEL = 'gpt-4o-mini-realtime-preview';
 const BIG_MODEL = 'gpt-4o-realtime-preview';
-const MODEL_NAME = BIG_MODEL;
 
 const SYSTEM_INSTRUCTIONS = `You are a helpful assistant.
 You have access to a note. You can read and update it. The note contains all required context.
@@ -67,7 +66,6 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 let ws: WebSocket | null = null;
 let mediaStream: MediaStream | null = null;
 let audioContext: AudioContext | null = null;
-let mediaRecorder: MediaRecorder | null = null;
 let audioQueue: AudioBuffer[] = [];
 let isPlaying = false;
 
