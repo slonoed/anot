@@ -5,5 +5,8 @@ export default defineConfig({
   plugins: [basicSsl()],
   server: {
     https: true
+  },
+  build: {
+    outDir: 'docs'
   }
 })
