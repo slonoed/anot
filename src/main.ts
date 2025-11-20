@@ -213,8 +213,30 @@ async function startConnection() {
     // Get microphone access first
     try {
       mediaStream = await navigator.mediaDevices.getUserMedia({ audio: true });
-    } catch (micError) {
-      throw new Error('Microphone access denied. Please allow microphone access in your browser settings and try again.');
+    } catch (micError: any) {
+      updateStatus('Microphone access denied');
+
+      // Provide detailed instructions based on the error
+      let errorMessage = 'Microphone access is required to use this app.\n\n';
+
+      if (micError.name === 'NotAllowedError' || micError.name === 'PermissionDeniedError') {
+        errorMessage += 'To enable microphone access:\n\n';
+        errorMessage += 'On iPhone/iPad:\n';
+        errorMessage += '1. Go to Settings\n';
+        errorMessage += '2. Scroll down and tap Safari\n';
+        errorMessage += '3. Tap Microphone\n';
+        errorMessage += '4. Select "Ask" or "Allow"\n';
+        errorMessage += '5. Reload this page and try again\n\n';
+        errorMessage += 'On Desktop:\n';
+        errorMessage += 'Click the lock icon in the address bar and allow microphone access.';
+      } else if (micError.name === 'NotFoundError') {
+        errorMessage += 'No microphone was found on your device.';
+      } else {
+        errorMessage += 'Error: ' + micError.message;
+      }
+
+      alert(errorMessage);
+      return;
     }
 
     updateStatus('Connecting...');
