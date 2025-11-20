@@ -2,14 +2,14 @@
   "name": "OpenAI Realtime Voice",
   "short_name": "Voice Notes",
   "description": "Voice assistant with note-taking capabilities using OpenAI Realtime API",
-  "start_url": "/",
+  "start_url": "/anot/",
   "display": "standalone",
   "background_color": "#242424",
   "theme_color": "#646cff",
   "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "/vite.svg",
+      "src": "/anot/vite.svg",
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "any maskable"

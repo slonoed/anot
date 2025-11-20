@@ -1,8 +1,8 @@
 const CACHE_NAME = 'openai-realtime-v1';
 const ASSETS_TO_CACHE = [
-  '/',
-  '/index.html',
-  '/vite.svg',
+  '/anot/',
+  '/anot/index.html',
+  '/anot/vite.svg',
 ];
 
 // Install event - cache assets
